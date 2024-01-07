@@ -63,5 +63,6 @@ public class Main {
         System.out.println("\nThanks for playing the General Knowledge Quiz!");
         System.out.println("You got " + correctAnswers + " out of " + totalQuestions + " questions correct.");
         scanner.close();
+        
     }
 }
