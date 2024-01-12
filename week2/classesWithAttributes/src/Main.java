@@ -13,5 +13,15 @@ public class Main {
         ProductManager productManager = new ProductManager();
         productManager.Add(product);
 
+        /*
+        productManager.Add2(1, "", "", 2, 200);
+        productManager.Add3(1, "", "", 2, 200);
+        productManager.Add4(1, "", "", 2, 200);
+        productManager.Add5(1, "", "", 2, 200);
+        productManager.Add6(1, "", "", 2, 200);
+        productManager.Add7(1, "", "", 2, 200);
+        */
+
+
     }
 }
