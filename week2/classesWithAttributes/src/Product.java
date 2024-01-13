@@ -1,4 +1,19 @@
 public class Product {
+
+        public Product(int id, String name, String description, Double price, int stockAmount, String color){
+                System.out.println("constructive block worked");
+                this.id= id;
+                this.color= color;
+                this.name= name;
+                this.price= price;
+                this.description= description;
+                this.stockAmount= stockAmount;
+        }
+
+        public Product(){
+
+        }
+
         //attribute | field
         int id;
         String name;
