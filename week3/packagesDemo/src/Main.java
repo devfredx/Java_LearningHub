@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import math.*;
+
 
 public class Main {
 
@@ -11,6 +13,10 @@ public class Main {
 
         System.out.println("Hi " + name);
 
+        fourOperations fourOperations = new fourOperations();
+        fourOperations.add(2,3);
+
+        logarithm logarithm = new logarithm();
 
     }
 }
