@@ -2,12 +2,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserData {
-    private static final Map<String, Double> accounts = new HashMap<>();
-    private static final Map<String, String> passwords = new HashMap<>();
-    private static final Map<String, String> accountCodes = new HashMap<>();
+    private final Map<String, Double> accounts;
+    private final Map<String, String> passwords;
+    private final Map<String, String> accountCodes;
 
-    static {
-        // Initializing with predefined accounts, passwords, and account codes
+    public UserData() {
+
+        accounts = new HashMap<>();
+        passwords = new HashMap<>();
+        accountCodes = new HashMap<>();
+
+
         accounts.put("fred", 4613.0);
         passwords.put("fred", "123");
         accountCodes.put("fred", "6213");
@@ -17,15 +22,15 @@ public class UserData {
         accountCodes.put("ellie", "4371");
     }
 
-    public static Map<String, Double> getAccounts() {
+    public Map<String, Double> getAccounts() {
         return accounts;
     }
 
-    public static Map<String, String> getPasswords() {
+    public Map<String, String> getPasswords() {
         return passwords;
     }
 
-    public static Map<String, String> getAccountCodes() {
+    public Map<String, String> getAccountCodes() {
         return accountCodes;
     }
 }

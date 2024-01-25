@@ -10,40 +10,7 @@ public class Transactions {
         this.accountNumber = accountNumber;
     }
 
-    public void performBankTransactions() {
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("\n===== Banking Transactions =====");
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Check Balance");
-            System.out.println("4. Exit");
-
-            System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (choice) {
-                case 1:
-                    performTransaction("deposit");
-                    break;
-                case 2:
-                    performTransaction("withdraw");
-                    break;
-                case 3:
-                    displayBalance();
-                    break;
-                case 4:
-                    System.out.println("Exiting banking transactions. Goodbye!");
-                    System.exit(0);
-                default:
-                    System.out.println("Invalid option. Please try again.");
-            }
-        }
-    }
-
-    private void performTransaction(String transactionType) {
+    public void performTransaction(String transactionType) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter amount to " + transactionType + ": $");
@@ -79,5 +46,10 @@ public class Transactions {
 
     private void displayBalance() {
         System.out.println("Current Balance: $" + accounts.get(accountNumber));
+    }
+
+
+    public String getAccountNumber() {
+        return accountNumber;
     }
 }
