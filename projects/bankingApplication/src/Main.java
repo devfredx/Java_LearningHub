@@ -10,10 +10,32 @@ public class Main {
         displayInitialAccounts(accounts);
 
 
-        System.out.println("\nWould you like to log in with an existing account or create a new account?");
-        System.out.println("1. Log in\n2. Create a new account");
-        System.out.print("Choose an option: ");
-        int option = InputUtil.getIntInput();
+        int option;
+        while (true) {
+            System.out.println("\nWould you like to log in with an existing account, create a new account, or exit?");
+            System.out.println("1. Log in\n2. Create a new account\nx. Exit");
+            System.out.print("Choose an option: ");
+            String userInput = InputUtil.getInput();
+
+            if (userInput.equalsIgnoreCase("x")) {
+                System.out.println("Exiting application. Goodbye!");
+                System.exit(0);
+            }
+
+            try {
+                option = Integer.parseInt(userInput);
+            } catch (NumberFormatException e) {
+                System.out.println("You have entered an unwanted input. Please enter a valid option.");
+                continue;
+            }
+
+            if (option == 1 || option == 2) {
+                break;
+            } else {
+                System.out.println("You have entered an unwanted input. Please enter a valid option.");
+            }
+        }
+
 
         LoginProcess loginProcess = new LoginProcess(accounts, userData.getPasswords(), userData.getAccountCodes());
 
