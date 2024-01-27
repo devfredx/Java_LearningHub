@@ -84,10 +84,10 @@ public class Transactions {
                     System.out.println("Invalid option. Please try again.");
             }
 
-            System.out.print("Do you want to continue with another transaction? (y/n): ");
+            System.out.print("\nDo you want to take another action (y/n): ");
             String continueOption = scanner.nextLine().toLowerCase();
             if (!continueOption.equals("y")) {
-                System.out.println("Exiting banking transactions. Goodbye!");
+                System.out.println("\nExiting application. Good day!");
                 System.exit(0);
             }
         }

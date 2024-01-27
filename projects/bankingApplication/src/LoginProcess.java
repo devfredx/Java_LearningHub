@@ -16,7 +16,7 @@ public class LoginProcess {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter account name: ");
+            System.out.print("\nEnter account name: ");
             String accountName = scanner.nextLine();
 
             System.out.print("Enter account number: ");
@@ -30,18 +30,18 @@ public class LoginProcess {
             boolean isPasswordCorrect = password.equals("123") || password.equals("456");
 
             if (isAccountNameCorrect && isAccountNumberCorrect && isPasswordCorrect) {
-                System.out.println("Login successful. Welcome, " + accountName + "!");
+                System.out.println("✅Login successful. Welcome, " + accountName + "!");
 
                 Transactions transactions = new Transactions(accounts, accountNumber);
                 transactions.performBankTransactionsLoop();
                 break;
             } else {
-                System.out.println("Incorrect input(s).");
-                System.out.println("1. Try again\n2. x for exit");
+                System.out.println("\nThe information entered seems incorrect❗");
+                System.out.print("1. Try again\n2. Exit\nChoose an option: ");
                 String userInput = scanner.nextLine();
 
                 if (userInput.equalsIgnoreCase("x")) {
-                    System.out.println("Exiting application. Goodbye!");
+                    System.out.println("\nExiting application. Good day!");
                     System.exit(0);
                 }
             }
@@ -51,7 +51,7 @@ public class LoginProcess {
     public void performAccountCreation() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter desired account number: ");
+        System.out.print("\nEnter desired account number: ");
         String newAccountNumber = scanner.nextLine();
         System.out.print("Enter desired account code: ");
         String newAccountCode = scanner.nextLine();
@@ -64,7 +64,7 @@ public class LoginProcess {
         passwords.put(newAccountNumber, newPassword);
         accountCodes.put(newAccountNumber, newAccountCode);
 
-        System.out.println("Account created successfully");
+        System.out.println("\n✅Account created successfully");
         displayBalance(newAccountNumber);
 
         Transactions transactions = new Transactions(accounts, newAccountNumber);
