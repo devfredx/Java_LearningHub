@@ -15,28 +15,36 @@ public class LoginProcess {
     public void performLogin() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter account name: ");
-        String accountNumber = scanner.nextLine();
+        while (true) {
+            System.out.print("Enter account name: ");
+            String accountName = scanner.nextLine();
 
-        if (accounts.containsKey(accountNumber)) {
-            System.out.print("Enter account code: ");
-            String enteredAccountCode = scanner.nextLine();
+            System.out.print("Enter account number: ");
+            String accountNumber = scanner.nextLine();
 
             System.out.print("Enter password: ");
-            String enteredPassword = scanner.nextLine();
+            String password = scanner.nextLine();
 
-            if (validateLogin(accountNumber, enteredAccountCode, enteredPassword)) {
-                System.out.println("Login successful. Welcome, " + accountNumber + "!");
-                displayBalance(accountNumber);
+            boolean isAccountNameCorrect = accountName.equals("fred") || accountName.equals("ellie");
+            boolean isAccountNumberCorrect = accountNumber.equals("6213") || accountNumber.equals("4371");
+            boolean isPasswordCorrect = password.equals("123") || password.equals("456");
 
+            if (isAccountNameCorrect && isAccountNumberCorrect && isPasswordCorrect) {
+                System.out.println("Login successful. Welcome, " + accountName + "!");
 
                 Transactions transactions = new Transactions(accounts, accountNumber);
-                performBankTransactionsLoop(transactions);
+                transactions.performBankTransactionsLoop();
+                break;
             } else {
-                System.out.println("Incorrect account code or password. Exiting application. Goodbye!");
+                System.out.println("Incorrect input(s).");
+                System.out.println("1. Try again\n2. x for exit");
+                String userInput = scanner.nextLine();
+
+                if (userInput.equalsIgnoreCase("x")) {
+                    System.out.println("Exiting application. Goodbye!");
+                    System.exit(0);
+                }
             }
-        } else {
-            System.out.println("Account not found. Exiting application. Goodbye!");
         }
     }
 
@@ -49,11 +57,9 @@ public class LoginProcess {
         String newAccountCode = scanner.nextLine();
         System.out.print("Enter desired password: ");
         String newPassword = scanner.nextLine();
-
         System.out.print("Enter initial balance: $");
         double initialBalance = scanner.nextDouble();
         scanner.nextLine();
-
         accounts.put(newAccountNumber, initialBalance);
         passwords.put(newAccountNumber, newPassword);
         accountCodes.put(newAccountNumber, newAccountCode);
@@ -61,15 +67,12 @@ public class LoginProcess {
         System.out.println("Account created successfully");
         displayBalance(newAccountNumber);
 
-
         Transactions transactions = new Transactions(accounts, newAccountNumber);
-        performBankTransactionsLoop(transactions);
+        transactions.performBankTransactionsLoop();
     }
-
     private void displayBalance(String accountNumber) {
         System.out.println("Current Balance: $" + accounts.get(accountNumber));
     }
-
     private void performBankTransactionsLoop(Transactions transactions) {
         while (true) {
             System.out.println("\n===== Banking Transactions =====");
@@ -99,8 +102,6 @@ public class LoginProcess {
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
-
-
             System.out.print("Do you want to continue with another transaction? (y/n): ");
             String continueOption = scanner.nextLine().toLowerCase();
             if (!continueOption.equals("y")) {
