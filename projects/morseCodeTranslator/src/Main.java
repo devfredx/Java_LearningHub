@@ -5,17 +5,17 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to Morse Code Translator!");
+        System.out.println("\n\nWelcome to Morse Code Translator!");
         while (true) {
-            System.out.println("Select an option:");
-            System.out.println("1. Text to Morse Code");
+            System.out.println("\n1. Text to Morse Code");
             System.out.println("2. Morse Code to Text");
             System.out.println("3. Exit");
+            System.out.print("Select an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
             if (choice == 1) {
-                System.out.print("Enter text to convert to Morse Code: ");
+                System.out.print("\nEnter text to convert to Morse Code: ");
                 String textInput = scanner.nextLine();
                 String morseCodeOutput = textToMorse(textInput);
                 System.out.println("Morse Code: " + morseCodeOutput);
@@ -25,7 +25,7 @@ public class Main {
                 String textOutput = morseToText(morseInput);
                 System.out.println("Text: " + textOutput);
             } else if (choice == 3) {
-                System.out.println("Exiting...");
+                System.out.println("\nExiting...");
                 System.exit(0);
             } else {
                 System.out.println("Invalid choice!");
