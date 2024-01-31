@@ -10,9 +10,17 @@ public class Quiz {
     }
 
     public void startQuiz() {
-        System.out.print("Enter your name: ");
+        System.out.print("\nEnter your name: ");
         String userName = scanner.nextLine();
-        System.out.println("\nHello, " + userName + "! Welcome to the Java Exam.\n");
+        System.out.print("\nHello, " + userName + "! Welcome to Java Exam.\n");
+        System.out.print("Starting the program");
+        PauseUtil.pause(1);
+        System.out.print(".");
+        PauseUtil.pause(1);
+        System.out.print(".");
+        PauseUtil.pause(1);
+        System.out.println(".\n");
+
 
         int correctAnswers = 0;
 
@@ -21,15 +29,21 @@ public class Quiz {
             for (String option : question.getOptions()) {
                 System.out.println("\t" + option);
             }
-            System.out.print("Your answer (A/B/C/D/E): ");
+            System.out.print("    Your answer: ");
             String userAnswer = scanner.nextLine().toUpperCase();
 
             if (userAnswer.equals(question.getCorrectAnswer())) {
                 correctAnswers++;
             }
+            PauseUtil.pause(1);
         }
 
-        System.out.println("\nResults:");
+        System.out.print("\nCalculating Results");
+        System.out.print(".");
+        PauseUtil.pause(1);
+        System.out.print(".");
+        PauseUtil.pause(1);
+        System.out.println(".\n");
         System.out.println("Total Questions: " + questions.length);
         System.out.println("Correct Answers: " + correctAnswers);
         System.out.println("Incorrect Answers: " + (questions.length - correctAnswers));
