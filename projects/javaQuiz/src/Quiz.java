@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Quiz {
@@ -14,35 +16,42 @@ public class Quiz {
         String userName = scanner.nextLine();
         System.out.print("\nHello, " + userName + "! Welcome to Java Exam.\n");
         System.out.print("Starting the program");
-        PauseUtil.pause(1);
+        //PauseUtil.pause(1);
         System.out.print(".");
-        PauseUtil.pause(1);
+        //PauseUtil.pause(1);
         System.out.print(".");
-        PauseUtil.pause(1);
+        //PauseUtil.pause(1);
         System.out.println(".\n");
 
-
         int correctAnswers = 0;
+        List<Integer> correctIndices = new ArrayList<>();
+        List<Integer> incorrectIndices = new ArrayList<>();
+        List<String> userAnswers = new ArrayList<>();
 
-        for (Question question : questions) {
+        for (int i = 0; i < questions.length; i++) {
+            Question question = questions[i];
             System.out.println(question.getQuestion());
             for (String option : question.getOptions()) {
                 System.out.println("\t" + option);
             }
             System.out.print("    Your answer: ");
             String userAnswer = scanner.nextLine().toUpperCase();
+            userAnswers.add(userAnswer);
 
             if (userAnswer.equals(question.getCorrectAnswer())) {
                 correctAnswers++;
+                correctIndices.add(i + 1);
+            } else {
+                incorrectIndices.add(i + 1);
             }
-            PauseUtil.pause(1);
+            //PauseUtil.pause(1);
         }
 
         System.out.print("\nCalculating Results");
         System.out.print(".");
-        PauseUtil.pause(1);
+        //PauseUtil.pause(1);
         System.out.print(".");
-        PauseUtil.pause(1);
+        //PauseUtil.pause(1);
         System.out.println(".\n");
         System.out.println("Total Questions: " + questions.length);
         System.out.println("Correct Answers: " + correctAnswers);
@@ -51,6 +60,28 @@ public class Quiz {
         double userScore = ((double) correctAnswers / questions.length) * 100;
         System.out.printf("Your Score: %.2f%%\n", userScore);
         System.out.println("Average User Score: 82%");
+
+        System.out.println("\nWould you like to:");
+        System.out.println("1. Restart the exam");
+        System.out.println("2. List details of answers");
+
+        String choice = scanner.nextLine();
+
+        if (choice.equals("1")) {
+            startQuiz();
+        } else if (choice.equals("2")) {
+            System.out.println("\nDetails of answers:");
+            System.out.println("Question\tStatus\t  User Answer\t Correct Answer");
+
+            for (int i = 0; i < questions.length; i++) {
+                Question question = questions[i];
+                String status = correctIndices.contains(i + 1) ? "✅" : "🟥";
+                String userAnswer = userAnswers.get(i);
+                String correctAnswer = question.getCorrectAnswer();
+
+                System.out.println("   " + (i + 1) + "\t\t  " + status + "\t\t   " + userAnswer + "\t\t\t  " + (status.equals("🟥") ? correctAnswer : ""));
+            }
+        }
 
         scanner.close();
     }
