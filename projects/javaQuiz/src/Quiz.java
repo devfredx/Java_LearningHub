@@ -16,12 +16,14 @@ public class Quiz {
         String userName = scanner.nextLine();
         System.out.print("\nHello, " + userName + "! Welcome to Java Exam.\n");
         System.out.print("Starting the program");
-        //PauseUtil.pause(1);
+        PauseUtil.pause(0.3);
         System.out.print(".");
-        //PauseUtil.pause(1);
+        PauseUtil.pause(0.3);
         System.out.print(".");
-        //PauseUtil.pause(1);
+        PauseUtil.pause(0.3);
         System.out.println(".\n");
+        PauseUtil.pause(0.3);
+
 
         int correctAnswers = 0;
         List<Integer> correctIndices = new ArrayList<>();
@@ -44,15 +46,17 @@ public class Quiz {
             } else {
                 incorrectIndices.add(i + 1);
             }
-            //PauseUtil.pause(1);
+            //PauseUtil.pause(0.35);
         }
 
         System.out.print("\nCalculating Results");
+        PauseUtil.pause(0.3);
         System.out.print(".");
-        //PauseUtil.pause(1);
+        PauseUtil.pause(0.3);
         System.out.print(".");
-        //PauseUtil.pause(1);
+        PauseUtil.pause(0.3);
         System.out.println(".\n");
+        PauseUtil.pause(0.3);
         System.out.println("Total Questions: " + questions.length);
         System.out.println("Correct Answers: " + correctAnswers);
         System.out.println("Incorrect Answers: " + (questions.length - correctAnswers));
@@ -61,15 +65,14 @@ public class Quiz {
         System.out.printf("Your Score: %.2f%%\n", userScore);
         System.out.println("Average User Score: 82%");
 
-        System.out.println("\nWould you like to:");
-        System.out.println("1. Restart the exam");
-        System.out.println("2. List details of answers");
+        System.out.println("\n1. List details of answers");
+        System.out.println("2. Restart the exam");
+        System.out.println("3. Exit");
+        System.out.print("Choose: ");
 
         String choice = scanner.nextLine();
 
         if (choice.equals("1")) {
-            startQuiz();
-        } else if (choice.equals("2")) {
             System.out.println("\nDetails of answers:");
             System.out.println("Question\tStatus\t  User Answer\t Correct Answer");
 
@@ -81,6 +84,10 @@ public class Quiz {
 
                 System.out.println("   " + (i + 1) + "\t\t  " + status + "\t\t   " + userAnswer + "\t\t\t  " + (status.equals("🟥") ? correctAnswer : ""));
             }
+        } else if (choice.equals("2")) {
+            startQuiz();
+        } else if (choice.equals("3")) {
+            System.exit(0);
         }
 
         scanner.close();
