@@ -1,7 +1,8 @@
 public class PauseUtil {
-    public static void pause(int seconds) {
+    public static void pause(double seconds) {
         try {
-            Thread.sleep(seconds * 1000);
+            long milliseconds = (long) (seconds * 1000);
+            Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
