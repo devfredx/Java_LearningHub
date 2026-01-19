@@ -1,0 +1,14 @@
+# IntelliJ IDEA dosyaları
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Derlenmiş kodlar (Çıktılar)
+out/
+target/
+bin/
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
