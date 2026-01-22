@@ -1,4 +1,4 @@
-public class JavaOutput {
+public class Main {
     public static void main(String[] args) {
 
         System.out.println("This is a standard line with a break.");

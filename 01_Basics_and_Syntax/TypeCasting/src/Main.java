@@ -1,4 +1,4 @@
-public class JavaTypeCasting {
+public class Main {
     public static void main(String[] args) {
 
         int smallNumber = 100;
