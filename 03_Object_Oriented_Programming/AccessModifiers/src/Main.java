@@ -9,7 +9,7 @@ class DataVault {
     }
 }
 
-public class AccessModifiers {
+public class Main {
     public static void main(String[] args) {
         DataVault vault = new DataVault();
 

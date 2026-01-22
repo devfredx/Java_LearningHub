@@ -1,4 +1,4 @@
-public class JavaScope {
+public class Main {
 
     static int classLevelVariable = 100;
 

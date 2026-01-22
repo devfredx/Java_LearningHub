@@ -1,4 +1,4 @@
-public class MethodParameters {
+public class Main {
     public static void main(String[] args) {
 
         displayMessage("Test Execution Started");

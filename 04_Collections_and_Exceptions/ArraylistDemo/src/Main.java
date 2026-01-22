@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList numbers new ArrayList ();
+        ArrayList numbers = new ArrayList ();
         numbers.add (1);
         numbers.add(10);
         numbers.add("Ankara");
