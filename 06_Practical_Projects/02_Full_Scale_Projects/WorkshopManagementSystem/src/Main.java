@@ -1,13 +1,14 @@
 public class Main {
     public static void main(String[] args) {
 
-        Vehicle myCar = new Car("34ABC123", "Toyota");
-        Vehicle myMoto = new Motorcycle("06XYZ99", "Honda");
+        WorkshopManager manager = new WorkshopManager();
 
-        Customer customer1 = new Customer("Engin", myCar);
-        Customer customer2 = new Customer("Derin", myMoto);
+        Customer c1 = new Customer("Engin", new Car("34ABC123", "Toyota"));
+        Customer c2 = new Customer("Derin", new Motorcycle("06XYZ99", "Honda"));
 
-        customer1.displayCustomerInfo();
-        customer2.displayCustomerInfo();
+        manager.registerJob(c1);
+        manager.registerJob(c2);
+
+        manager.showAllActiveJobs();
     }
 }
